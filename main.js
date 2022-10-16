@@ -1,7 +1,6 @@
 const request = require("request");
 const express = require('express')
 const app = express()
-const port = 80
 const mods = [];
 // Create a test GET request to understand what the JSON response from the tmi API looks like
 request('http://tmi.twitch.tv/group/user/oldsann/chatters', {
@@ -14,10 +13,9 @@ request('http://tmi.twitch.tv/group/user/oldsann/chatters', {
     for (i = 0; body.chatters.moderators[i] != undefined; i++) {
         mods.push(body.chatters.moderators[i]);
     }
+    console.log('mods added');
 });
 
-app.get('/', (req, res) => {
+app.get('/mods', (req, res) => {
   res.send(mods);
 })
-
-app.listen(port);
