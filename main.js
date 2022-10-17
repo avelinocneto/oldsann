@@ -19,3 +19,7 @@ request('http://tmi.twitch.tv/group/user/oldsann/chatters', {
 app.get('/mods', (req, res) => {
   res.send(mods);
 })
+
+app.listen(80, function (){
+    console.log('app running on port 80');
+});
